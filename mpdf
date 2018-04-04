@@ -1,4 +1,5 @@
 #! /bin/bash
+killall evince
 filename=`basename ${1}`
 if [[ ${filename} != *.tex ]]
 then
@@ -8,3 +9,4 @@ cd tex
 pdflatex ${filename} 
 mv ${filename/\.tex/\.pdf} ../
 cd ..
+evince ${filename/\.tex/\.pdf} &
